@@ -3,6 +3,7 @@ FROM ubuntu:16.04
 # Release parameters
 ENV GOOGLEAPIS_HASH a31e5f072dbf18a493efabbca9e39e200ed1a78e
 ENV GAPIC_GENERATOR_HASH b1d46dec256e433e07a11992a41b9e3cf0df54ea
+ENV COMMON_PROTOS_HASH 831766b9ae755372b2a5f24333697bb14a867e92
 ENV ARTMAN_VERSION 0.15.1
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -170,6 +171,11 @@ RUN git clone https://github.com/googleapis/googleapis \
   && git checkout $GOOGLEAPIS_HASH \
   && cd .. \
   && rm -rf /googleapis/.git/
+RUN git clone https://github.com/googleapis/api-common-protos \
+  && cd api-common-protos \
+  && git checkout COMMON_PROTOS_HASH \
+  && cd .. \
+  && rm -rf /api-common-protos/.git/
 RUN git clone https://github.com/googleapis/gapic-generator toolkit \
   && cd toolkit/ \
   && git checkout $GAPIC_GENERATOR_HASH \
