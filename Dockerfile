@@ -173,7 +173,7 @@ RUN git clone https://github.com/googleapis/googleapis \
   && rm -rf /googleapis/.git/
 RUN git clone https://github.com/googleapis/api-common-protos \
   && cd api-common-protos \
-  && git checkout COMMON_PROTOS_HASH \
+  && git checkout $COMMON_PROTOS_HASH \
   && cd .. \
   && rm -rf /api-common-protos/.git/
 RUN git clone https://github.com/googleapis/gapic-generator toolkit \
