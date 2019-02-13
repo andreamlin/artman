@@ -53,6 +53,10 @@ WHITELIST = [
     # java.lang.IllegalStateException: A HttpRule option must be defined.
     # (affects only PHP that generates code for JSON over HTTP)
     'php_gapic@google/cloud/bigquery/storage/artman_bigquerystorage_v1beta1.yaml',
+
+    # whitelisted until cl/233644240 is addressed, perhaps by cl/233678294.
+    'go_gapic@google/pubsub/artman_pubsub.yaml',
+    'csharp_gapic@google/pubsub/artman_pubsub.yaml',
 ]
 
 logger = logging.getLogger('smoketest')
